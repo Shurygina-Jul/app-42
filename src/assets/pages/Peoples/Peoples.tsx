@@ -9,30 +9,42 @@ import { getApiResource } from "../../lib/network";
 import { IPeopleList } from "./interface";
 
 import { API_PEOPLE } from "assets/lib/constants";
+import { withErrorApi } from "assets/hoc/withErrorApi";
 
-function Peoples() {
+function Peoples({ setErrorApi }: any) {
   const [people, setPeople] = useState<any[]>([]);
 
   const getResource = async (url: string) => {
     const res = await getApiResource(url);
 
-    const peopleList = res.results.map(({ name, url }: IPeopleList) => {
-      const id = getPeopleId(url);
-      const img = getPeopleImage(id);
-      return {
-        id,
-        name,
-        img,
-      };
-    });
-    setPeople(peopleList);
+    if (res) {
+      const peopleList = res.results.map(({ name, url }: IPeopleList) => {
+        const id = getPeopleId(url);
+        const img = getPeopleImage(id);
+
+        return {
+          id,
+          name,
+          img,
+        };
+      });
+      setPeople(peopleList);
+      setErrorApi(false);
+    } else {
+      setErrorApi(true);
+    }
   };
 
   useEffect(() => {
     getResource(API_PEOPLE);
   }, []);
 
-  return <>{people && <PeopleList people={people} />}</>;
+  return (
+    <>
+      <h1>Navigation</h1>
+      {people && <PeopleList people={people} />}
+    </>
+  );
 }
 
-export default Peoples;
+export default withErrorApi(Peoples);

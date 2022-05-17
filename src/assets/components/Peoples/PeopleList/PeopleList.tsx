@@ -1,7 +1,6 @@
 import { IPeople } from "./interface";
 
 function PeopleList({ people }: any) {
-  console.log(people);
   return (
     <>
       <ul className="grid grid-cols-5 gap-4">

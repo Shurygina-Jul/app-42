@@ -1,5 +1,14 @@
 import tw, { styled } from "twin.macro";
 
-export const StyledHeader = styled.div`
-  ${tw`mb-40 flex justify-center text-red-700`};
+export const StyledHeader = styled.nav`
+  & ul {
+    ${tw`mb-12 mt-12  flex justify-center`};
+  }
+  & a {
+    & :active,active,
+    :hover {
+      border-bottom: 1px solid yellow;
+      color: yellow;
+    }
+  }
 `;

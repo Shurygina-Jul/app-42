@@ -11,9 +11,13 @@ function Header() {
           </NavLink>
         </li>
         <li>
-          {" "}
           <NavLink className="mr-32 text-white" to="/people">
             People
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="mr-32 text-white" to="/not-found">
+            Not Found
           </NavLink>
         </li>
       </ul>

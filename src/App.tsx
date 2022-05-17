@@ -10,14 +10,14 @@ function getError(props: any): import("react").ReactNode {
 function App() {
   return (
     <>
-      <BrowserRouter>
+     
         <Header />
         <Routes>
           {routesConfig.map((route, index) => (
             <Route key={index} path={route.path} element={route.element(getError)} />
           ))}
         </Routes>
-      </BrowserRouter>
+
     </>
   );
 }

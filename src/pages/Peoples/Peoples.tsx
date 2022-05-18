@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 import Spinner from "components/Spinner/Spinner";
-
 import PeopleList from "components/Peoples/PeopleList/PeopleList";
+import Navigation from "components/Peoples/Navigation/Navigation";
 
 import { getPeopleId, getPeopleImage, getPeoplePageID } from "lib/utils/getPeopleData";
 import { getApiResource, changeHTTP } from "lib/utils/network";
@@ -14,7 +14,6 @@ import { useQueryParams } from "lib/hooks/useQueryParams";
 import { IPeopleList, IProps, IPeople } from "./interface";
 
 import { API_PEOPLE } from "lib/utils/constants";
-import Navigation from "components/Peoples/Navigation/Navigation";
 
 function Peoples({ setErrorApi }: IProps) {
   const [people, setPeople] = useState<IPeople[]>([]);
@@ -55,7 +54,7 @@ function Peoples({ setErrorApi }: IProps) {
   useEffect(() => {
     getResource(API_PEOPLE + queryPage);
     return () => setIsFetching(true);
-  }, [queryPage]);
+  }, []);
 
   return (
     <>

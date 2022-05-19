@@ -1,9 +1,9 @@
 import { HTTP, HTTPS } from "./constants";
-// /**
-//  * Изменяет  url c HTTP на HTTPS
-//  * @param {string} url-url для изменения
-//  * @returns {string} url c HTTPS
-//  */
+/**
+ * Изменяет  url c HTTP на HTTPS
+ * @param {string} url-url для изменения
+ * @returns {string} url c HTTPS
+ */
 
 export const changeHTTP = (url: string) => {
   const result = url ? url.replace(HTTP, HTTPS) : url;

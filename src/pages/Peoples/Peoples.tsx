@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import Spinner from "components/Spinner/Spinner";
+import Spinner from "components/UI/Spinner/Spinner";
 import PeopleList from "components/Peoples/PeopleList/PeopleList";
 import Navigation from "components/Peoples/Navigation/Navigation";
 

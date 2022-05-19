@@ -5,8 +5,10 @@ import {
   SWAPI_ROOT,
   GUIDE_IMG_EXTENTION,
   URL_IMG_PERSON,
-  SWAPI_PARAM_PAGE,
 } from "./constants";
+
+
+//  Функция,которая проверяет протокол и возвращает всегда HTTPS
 
 const checkProtocol = (url: string) => {
   if (url.indexOf(HTTPS) !== -1) {
@@ -16,6 +18,7 @@ const checkProtocol = (url: string) => {
   return HTTP;
 };
 
+//Получение id страницы
 const getId = (url: string, category: string) => {
   const protocol = checkProtocol(url);
 

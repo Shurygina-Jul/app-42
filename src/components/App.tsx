@@ -1,22 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 
-import Header from "components/Header/Header";
-import { routesConfig } from "routes/routesConfig";
+import Header from "components/Header";
 
-function getError(props: any): import("react").ReactNode {
-  throw new Error("Function not implemented.");
-}
+import { routesConfig } from "routes/routesConfig";
 
 function App() {
   return (
-    <>
+    <div className="pl-32 pr-32 pt-8 pb-12">
       <Header />
       <Routes>
         {routesConfig.map((route, index) => (
-          <Route key={index} path={route.path} element={route.element(getError)} />
+          <Route key={index} path={route.path} element={<route.element />} />
         ))}
       </Routes>
-    </>
+    </div>
   );
 }
 

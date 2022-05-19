@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { IPeople } from "./interface";
 
-function PeopleList({ people }: any) {
+import { IPeople, IPeopleList } from "./interface";
+
+function PeopleList({ people }: IPeopleList) {
   return (
     <>
       <ul className="grid grid-cols-5 gap-4">

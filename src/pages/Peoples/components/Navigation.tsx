@@ -1,5 +1,6 @@
-import Button from "components/UI/Button/Button";
 import { Link } from "react-router-dom";
+
+import Button from "components/UI/Button/Button";
 
 import { INavigate } from "./interface";
 

@@ -28,7 +28,7 @@ const getId = (url: string, category: string) => {
 };
 
 export const getPeopleId = (url: string) => getId(url, SWAPI_PEOPLE);
-export const getPeopleImage = (id: string) => `${URL_IMG_PERSON}/${id + GUIDE_IMG_EXTENTION}`;
+export const getPeopleImage = (id: string | undefined) => `${URL_IMG_PERSON}/${id + GUIDE_IMG_EXTENTION}`;
 
 export const getPeoplePageID = (url: string) => {
   const id = url.replace(/[^0-9,\s]/g, "");

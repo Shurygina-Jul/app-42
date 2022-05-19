@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
 import Spinner from "components/UI/Spinner/Spinner";
-import PeopleList from "components/Peoples/PeopleList/PeopleList";
-import Navigation from "components/Peoples/Navigation/Navigation";
+
+import Navigation from "./components/Navigation";
+import PeopleList from "./components/PeopleList";
 
 import { getPeopleId, getPeopleImage, getPeoplePageID } from "lib/utils/getPeopleData";
 import { getApiResource, changeHTTP } from "lib/utils/network";
@@ -11,11 +12,13 @@ import { withErrorApi } from "hoc/withErrorApi";
 
 import { useQueryParams } from "lib/hooks/useQueryParams";
 
-import { IPeopleList, IProps, IPeople } from "./interface";
-
 import { API_PEOPLE } from "lib/utils/constants";
 
-function Peoples({ setErrorApi }: IProps) {
+import { IPeopleList, IPeople } from "./interface";
+
+import { IErrorApi } from "types/types";
+
+function Peoples({ setErrorApi }: IErrorApi) {
   const [people, setPeople] = useState<IPeople[]>([]);
   const [isFetching, setIsFetching] = useState(true);
   const [prevPage, setPrevPage] = useState("");

@@ -5,10 +5,11 @@ export const StyledHeader = styled.nav`
     ${tw`mb-12 mt-12  flex`};
   }
   & a {
-    & :active,active,
-    :hover {
-      border-bottom: 1px solid yellow;
-      color: yellow;
+    &:hover {
+      ${tw`border-b border-solid border-b-yellow-300 text-yellow-300`};
+    }
+    &.active {
+      ${tw`border-b border-solid border-b-yellow-300 text-yellow-300`};
     }
   }
 `;

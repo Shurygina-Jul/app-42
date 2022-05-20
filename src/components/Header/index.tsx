@@ -6,7 +6,7 @@ function Header() {
   return (
     <StyledHeader>
       <ul>
-        {MENU.map(({ to, name }) => (
+        {MENU.map(({ to, name}) => (
           <li key={name}>
             <NavLink className="mr-32 text-white" to={to}>
               {name}

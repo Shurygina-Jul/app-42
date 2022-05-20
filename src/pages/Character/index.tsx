@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 
 import Characteristics from "./components/Characteristics";
 import Photo from "./components/Photo";
+import LinkBack from "./components/LinkBack";
 
 import { withErrorApi } from "hoc/withErrorApi";
 
@@ -42,6 +43,7 @@ function Character({ setErrorApi }: IErrorApi) {
 
   return (
     <div className="text-white">
+      <LinkBack/>
       <h1 className="text-4xl mb-6">{name}</h1>
       <div className="flex">
        

@@ -5,7 +5,7 @@ import Character from "pages/Character";
 
 export const routesConfig = [
   { path: "/", element: Home },
-  { path: "/people", element: Peoples },
+  { path: "/people", element: Peoples, exact: false },
   { path: "/people/:id", element: Character },
   { path: "/not-found", element: NotFound },
   { path: "*", element: NotFound },

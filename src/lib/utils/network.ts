@@ -31,3 +31,14 @@ export const getApiResource = async (url: string) => {
     return false;
   }
 };
+
+
+export const makeConcurrentRequest = async (url:any[]) => {
+  const res = await Promise.all(
+    url.map((res:any) => {
+      return fetch(res).then((res) => res.json());
+    }),
+  );
+
+  return res;
+};

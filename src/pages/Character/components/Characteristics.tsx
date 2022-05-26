@@ -7,7 +7,7 @@ function Characteristics({ info }: ICharacteristics) {
         {info.map(
           ({ title, data }: IHero) =>
             data && (
-              <li key={title}>
+              <li key={title} className="mb-4">
                 <span>
                   {title} : {data}
                 </span>

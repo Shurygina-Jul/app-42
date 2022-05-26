@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useParams } from "react-router";
 
-import Characteristics from "./components/Characteristics";
-import Photo from "./components/Photo";
 import LinkBack from "./components/LinkBack";
+import Photo from "./components/Photo";
+import Characteristics from "./components/Characteristics";
+
+import Spinner from "components/UI/Spinner/Spinner";
 
 import { withErrorApi } from "hoc/withErrorApi";
 
@@ -15,10 +17,13 @@ import { API_PERSON } from "lib/utils/constants";
 import { IHero } from "./interface";
 import { IErrorApi } from "types/types";
 
+const Films = React.lazy(() => import("./components/Films"));
+
 function Character({ setErrorApi }: IErrorApi) {
   const [info, setInfo] = useState<IHero[]>([]);
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
+  const [films, setFilms] = useState(null);
 
   //получаем id из url
   const { id } = useParams();
@@ -26,6 +31,7 @@ function Character({ setErrorApi }: IErrorApi) {
   useEffect(() => {
     (async () => {
       const res = await getApiResource(`${API_PERSON}/${id}/`);
+
       setErrorApi(!res);
       setInfo([
         { title: "birth year", data: res.birth_year },
@@ -37,18 +43,26 @@ function Character({ setErrorApi }: IErrorApi) {
       setName(res.name);
       setPhoto(getPeopleImage(id));
 
-      //TODO:добавить фильмы res.films
+      res.films.length && setFilms(res.films);
     })();
   }, []);
 
   return (
-    <div className="text-white">
-      <LinkBack/>
-      <h1 className="text-4xl mb-6">{name}</h1>
-      <div className="flex">
-       
-        <Photo photo={photo} name={name} />
-        {info && <Characteristics info={info} />}
+    <div className="text-white ">
+      <LinkBack />
+      <div className="border-l-4 border-purple-900">
+        <h1 className="mb-6 w-[200px] rounded-r-sm border-2 border-purple-900 bg-purple-900 text-2xl">
+          {name}
+        </h1>
+        <div className="grid grid-cols-3 gap-4  ">
+          <Photo photo={photo} name={name} />
+          {info && <Characteristics info={info} />}
+          {films && (
+            <Suspense fallback={<Spinner theme="dark" />}>
+              <Films films={films} />
+            </Suspense>
+          )}
+        </div>
       </div>
     </div>
   );

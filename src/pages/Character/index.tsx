@@ -20,10 +20,11 @@ import { IErrorApi } from "types/types";
 const Films = React.lazy(() => import("./components/Films"));
 
 function Character({ setErrorApi }: IErrorApi) {
+  const [characterId, setCharacterId] = useState<string | undefined>("");
   const [info, setInfo] = useState<IHero[]>([]);
-  const [name, setName] = useState("");
-  const [photo, setPhoto] = useState("");
-  const [films, setFilms] = useState(null);
+  const [name, setName] = useState<string>("");
+  const [img, setImg] = useState<string>("");
+  const [films, setFilms] = useState<string>("");
 
   //получаем id из url
   const { id } = useParams();
@@ -31,6 +32,7 @@ function Character({ setErrorApi }: IErrorApi) {
   useEffect(() => {
     (async () => {
       const res = await getApiResource(`${API_PERSON}/${id}/`);
+      setCharacterId(id);
 
       setErrorApi(!res);
       setInfo([
@@ -41,7 +43,7 @@ function Character({ setErrorApi }: IErrorApi) {
         { title: "hair color", data: res.hair_color },
       ]);
       setName(res.name);
-      setPhoto(getPeopleImage(id));
+      setImg(getPeopleImage(id));
 
       res.films.length && setFilms(res.films);
     })();
@@ -55,7 +57,7 @@ function Character({ setErrorApi }: IErrorApi) {
           {name}
         </h1>
         <div className="grid grid-cols-3 gap-4  ">
-          <Photo photo={photo} name={name} />
+          <Photo img={img} name={name} id={characterId} />
           {info && <Characteristics info={info} />}
           {films && (
             <Suspense fallback={<Spinner theme="dark" />}>

@@ -1,18 +1,14 @@
-import { Link } from "react-router-dom";
+import Card from "components/Card";
+import { ICharacter } from "types/types";
 
-import { IPeople, IPeopleList } from "./interface";
+import { IPeopleList } from "./interface";
 
 function PeopleList({ people }: IPeopleList) {
   return (
     <>
       <ul className="grid grid-cols-5 gap-4">
-        {people.map(({ name, id, img }: IPeople) => (
-          <li className="rounded-lg  bg-white hover:scale-125" key={`${name}_${id}`}>
-            <Link to={`/people/${id}`}>
-              <img className="rounded-t-lg object-cover object-center" src={img} alt={name} />
-              <p className="text-center text-xl">{name}</p>
-            </Link>
-          </li>
+        {people.map(({ name, id, img }: ICharacter) => (
+          <Card name={name} id={id} img={img} key={`${name}_${id}`} />
         ))}
       </ul>
     </>

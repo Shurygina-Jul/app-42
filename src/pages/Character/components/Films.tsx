@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 
 import { changeHTTP, makeConcurrentRequest } from "lib/utils/network";
 
+import { IFilmsName } from "./interface";
+
 function Films({ films }: any) {
-  const [filmsName, setFilmsName] = useState<any[]>([]);
+  const [filmsName, setFilmsName] = useState<IFilmsName[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -17,8 +19,8 @@ function Films({ films }: any) {
   return (
     <>
       <ul>
-        {filmsName.map(({ title, episode_id }: any, index: number) => (
-          <li key={index} className="mb-4">
+        {filmsName.map(({ title, episode_id }: IFilmsName) => (
+          <li key={`${title}_${episode_id}`} className="mb-4">
             <span className="bg-pink-400 p-1 rounded-sm">Episode {episode_id}</span>
             <span> : </span>
             <span>{title}</span>

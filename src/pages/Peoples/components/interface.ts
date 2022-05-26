@@ -1,3 +1,4 @@
+import { ICharacter } from 'types/types';
 export interface INavigate {
   getResourse: (url: string) => Promise<void>;
   prevPage: string;
@@ -5,11 +6,11 @@ export interface INavigate {
   currentPage: number;
 }
 
-export interface IPeople {
-  name?: string;
-  id?: string;
-  img?: string;
-}
 export interface IPeopleList {
-  people: IPeople[];
+  people: ICharacter[];
+}
+
+export interface IResult {
+  name:string;
+  url:string;
 }

@@ -1,3 +1,4 @@
-export interface IHeader{
-    id?: string;
-};
+export interface IMenuItem{
+    to: string,
+    name:string,
+}

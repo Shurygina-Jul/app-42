@@ -14,12 +14,12 @@ import { useQueryParams } from "lib/hooks/useQueryParams";
 
 import { API_PEOPLE } from "lib/utils/constants";
 
-import { IPeopleList, IPeople } from "./interface";
 
-import { IErrorApi } from "types/types";
+import { ICharacter, IErrorApi } from "types/types";
+import { IResult } from "./components/interface";
 
 function Peoples({ setErrorApi }: IErrorApi) {
-  const [people, setPeople] = useState<IPeople[]>([]);
+  const [people, setPeople] = useState<ICharacter[]>([]);
   const [isFetching, setIsFetching] = useState(true);
   const [prevPage, setPrevPage] = useState("");
   const [nextPage, setNextPage] = useState("");
@@ -32,7 +32,7 @@ function Peoples({ setErrorApi }: IErrorApi) {
     const res = await getApiResource(url);
 
     if (res) {
-      const peopleList = res.results.map(({ name, url }: IPeopleList) => {
+      const peopleList = res.results.map(({ name, url }: IResult) => {
         const id = getPeopleId(url);
         const img = getPeopleImage(id);
 

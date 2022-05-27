@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Suspense } from "react";
 import { useParams } from "react-router";
+import { useStore } from "effector-react";
 
 import LinkBack from "./components/LinkBack";
 import Photo from "./components/Photo";
@@ -17,6 +18,8 @@ import { API_PERSON } from "lib/utils/constants";
 import { IHero } from "./interface";
 import { IErrorApi } from "types/types";
 
+import { $users } from "store/store";
+
 const Films = React.lazy(() => import("./components/Films"));
 
 function Character({ setErrorApi }: IErrorApi) {
@@ -25,9 +28,15 @@ function Character({ setErrorApi }: IErrorApi) {
   const [name, setName] = useState<string>("");
   const [img, setImg] = useState<string>("");
   const [films, setFilms] = useState<string>("");
+  const [favorite, setFavorite] = useState<boolean>(false);
 
   //получаем id из url
   const { id } = useParams();
+
+  const users = useStore($users);
+  // // users.forEach((user)=>user.id===id? setFavorite(true):setFavorite(false))
+  // users.forEach((user) => { user ? console.log(true) : console.log(false); });
+  // console.log(users.findIndex((user) => user.id === id));
 
   useEffect(() => {
     (async () => {
@@ -46,6 +55,11 @@ function Character({ setErrorApi }: IErrorApi) {
       setImg(getPeopleImage(id));
 
       res.films.length && setFilms(res.films);
+
+      users.forEach((user) => (user.id === id ? setFavorite(true) : setFavorite(false)));
+
+      // const userIndex = users.findIndex((user) => user.id === id);
+      // userIndex === -1 ? setFavorite(false) : setFavorite(true);
     })();
   }, []);
 
@@ -57,7 +71,13 @@ function Character({ setErrorApi }: IErrorApi) {
           {name}
         </h1>
         <div className="grid grid-cols-3 gap-4  ">
-          <Photo img={img} name={name} id={characterId} />
+          <Photo
+            img={img}
+            name={name}
+            id={characterId}
+            favorite={favorite}
+            setFavorite={setFavorite}
+          />
           {info && <Characteristics info={info} />}
           {films && (
             <Suspense fallback={<Spinner theme="dark" />}>

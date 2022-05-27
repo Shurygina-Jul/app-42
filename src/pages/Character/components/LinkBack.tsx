@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import ArrowBack from "../../../assets/icons/arrow_back.svg";
+import ArrowBack from "assets/icons/arrow_back.svg";
 
 function LinkBack() {
   const navigate = useNavigate();

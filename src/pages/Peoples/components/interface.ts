@@ -6,9 +6,7 @@ export interface INavigate {
   currentPage: number;
 }
 
-export interface IPeopleList {
-  people: ICharacter[];
-}
+
 
 export interface IResult {
   name:string;

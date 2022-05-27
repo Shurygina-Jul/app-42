@@ -1,8 +1,9 @@
 import tw, { styled } from "twin.macro";
 
 export const StyledHeader = styled.nav`
+  ${tw`flex mb-12 mt-12`}
   & ul {
-    ${tw`mb-12 mt-12  flex`};
+    ${tw` flex`};
   }
   & a {
     &:hover {

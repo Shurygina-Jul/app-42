@@ -2,7 +2,7 @@ import Home from "pages/Home";
 import Peoples from "pages/Peoples";
 import NotFound from "pages/NotFound";
 import Character from "pages/Character";
-import Favorite  from 'pages/Favorite';
+import Favorite  from 'pages/FavoriteCharacters';
 
 
 export const routesConfig = [

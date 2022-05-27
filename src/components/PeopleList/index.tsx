@@ -1,7 +1,8 @@
 import Card from "components/Card";
-import { ICharacter } from "types/types";
 
 import { IPeopleList } from "./interface";
+import { ICharacter } from "types/types";
+
 
 function PeopleList({ people }: IPeopleList) {
   return (

@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 
 import Spinner from "components/UI/Spinner/Spinner";
 
+import PeopleList from "components/PeopleList";
 import Navigation from "./components/Navigation";
-import PeopleList from "./components/PeopleList";
+
 
 import { getPeopleId, getPeopleImage, getPeoplePageID } from "lib/utils/getPeopleData";
 import { getApiResource, changeHTTP } from "lib/utils/network";

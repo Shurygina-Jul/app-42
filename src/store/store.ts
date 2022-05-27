@@ -1,9 +1,14 @@
 import { createStore, createEvent } from "effector";
+import connectLocalStorage from "effector-localstorage";
 
-import { ICharacter } from './../types/types';
+import { ICharacter } from 'types/types';
+
+
+const usersLocalStorage = connectLocalStorage("users").onError((err) => console.log(err))
 
 //create store
-export const $users = createStore<ICharacter[]>([]);
+export const $users = createStore<ICharacter[]>(usersLocalStorage.init([]));
+
 
 //create events
 export const update = createEvent<ICharacter>();
@@ -19,3 +24,4 @@ const updateStore = (state: ICharacter[], data: ICharacter) => {
 
 //subscribe
 $users.on(update, updateStore);
+$users.watch(usersLocalStorage);

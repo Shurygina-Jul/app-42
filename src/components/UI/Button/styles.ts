@@ -8,11 +8,11 @@ export const StyledButton = styled.button<IStyled>`
   &:disabled,
   [disabled],
   :disabled:hover {
-    ${tw`text-yellow-300 cursor-auto bg-transparent opacity-30`};
+    ${tw`text-yellow cursor-auto bg-transparent opacity-30`};
   }
 
   ${({ theme }) =>
     theme === "dark"
-      ? tw`border-yellow-300 text-yellow-300 hover:bg-yellow-300 hover:text-black`
-      : tw`border-black text-black hover:bg-black hover: text-yellow-300`};
+      ? tw`border-yellow text-yellow hover:bg-yellow hover:text-black`
+      : tw`border-black text-black hover:bg-black hover: text-yellow`};
 `;

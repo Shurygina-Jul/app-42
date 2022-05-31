@@ -1,5 +1,17 @@
+import Side from "./components/Side";
+import { SIDES } from "./constants";
+
 function Home() {
-  return <p className="pt-32 text-3xl text-white">Home Page</p>;
+  return (
+    <>
+      <p className="p1 text-white">Choose you side</p>
+      <div className="flex justify-around">
+        {SIDES.map(({ theme, text, img }, index) => (
+          <Side key={index} theme={theme} text={text} img={img} />
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default Home;

@@ -13,7 +13,7 @@ function LinkBack() {
   return (
     <a href="#" className="mt-4 inline-flex text-white" onClick={handleGoBack}>
       <img src={ArrowBack} className=" mr-4 h-[30px] w-[30px] " alt="Go back" />
-      <span className=" inline-flex items-center font-bold text-yellow-300"> Go back</span>
+      <span className=" inline-flex items-center font-bold text-yellow"> Go back</span>
     </a>
   );
 }

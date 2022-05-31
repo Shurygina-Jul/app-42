@@ -1,0 +1,7 @@
+@font-face {
+  src: url("DecimaMonoCyr.woff2") format("woff2"),
+    url("DecimaMonoCyr.woff") format("woff");
+  font-family: "Decima";
+  font-weight: normal;
+  font-style: normal;
+}

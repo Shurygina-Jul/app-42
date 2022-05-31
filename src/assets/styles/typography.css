@@ -1,0 +1,6 @@
+@import "../fonts/fonts";
+
+.p1{
+font-family: "Decima";
+@apply sm:text-xs
+}

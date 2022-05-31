@@ -6,9 +6,15 @@ import App from "components/App";
 
 import "./assets/styles/index.css";
 
+import ThemeProvider from "context/ThemeContext";
+
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
 );

@@ -4,13 +4,13 @@ import { changeHTTP, makeConcurrentRequest } from "lib/utils/network";
 
 import { IFilmsName } from "./interface";
 
-function Films({ films }: any) {
+function Films({ films }:any) {
   const [filmsName, setFilmsName] = useState<IFilmsName[]>([]);
 
   useEffect(() => {
     (async () => {
-      const filmsHTTPS = films.map((url: any) => changeHTTP(url));
-      const filmsData = await makeConcurrentRequest(filmsHTTPS);
+      const filmsHTTPS:string[] = films.map((url: string) => changeHTTP(url));
+      const filmsData:IFilmsName[] = await makeConcurrentRequest(filmsHTTPS);
 
       setFilmsName(filmsData);
     })();

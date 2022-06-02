@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import ArrowBack from "assets/icons/arrow_back.svg";
@@ -5,7 +6,7 @@ import ArrowBack from "assets/icons/arrow_back.svg";
 function LinkBack() {
   const navigate = useNavigate();
 
-  const handleGoBack = (e: any) => {
+  const handleGoBack = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     navigate(-1);
   };

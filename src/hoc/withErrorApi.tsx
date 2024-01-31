@@ -4,7 +4,7 @@ import ErrorMessage from "components/ErrorMessage";
 import { IErrorApi } from "types/types";
 
 export const withErrorApi = (View: React.ComponentType<IErrorApi>) => {
-  return (props: unknown) => {
+  return (props: any) => {
     const [errorApi, setErrorApi] = useState(false);
 
     return <>{errorApi ? <ErrorMessage /> : <View setErrorApi={setErrorApi} {...props} />}</>;

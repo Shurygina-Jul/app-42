@@ -6,9 +6,7 @@ import { THEME_LIGHT, THEME_DARK, THEME_NEITRAL } from "context/constants";
 
 import { ISide } from "./components/interface";
 
-
-
-export const SIDES:ISide[]= [
+export const SIDES: ISide[] = [
   {
     theme: THEME_LIGHT,
     text: "Light Side",

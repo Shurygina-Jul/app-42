@@ -7,7 +7,7 @@ export interface IHero {
   data?: string;
 }
 
-export interface IFilmsName{
+export interface IFilmsName {
   title?: string;
   episode_id?: string;
 }

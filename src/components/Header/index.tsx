@@ -21,12 +21,12 @@ function Header() {
     theme === THEME_LIGHT
       ? setIcon(lightsaberIcon)
       : theme === THEME_DARK
-      ? setIcon(stationIcon)
-      : setIcon(droidIcon);
+        ? setIcon(stationIcon)
+        : setIcon(droidIcon);
   }, [theme]);
   return (
     <StyledHeader>
-      <img src={icon} alt="star wars" className="w-[64px]"/>
+      <img src={icon} alt="star wars" className="w-[64px]" />
       <ul>
         {MENU.map(({ to, name }) => (
           <li key={name}>

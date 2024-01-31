@@ -1,5 +1,5 @@
 export interface ISide {
-  theme: string,
-  text: string,
-  img: string
+  theme: string;
+  text: string;
+  img: string;
 }

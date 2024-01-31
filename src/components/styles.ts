@@ -8,8 +8,8 @@ export const StyledApp = styled.div<IStyled>`
     theme === "light"
       ? tw`bg-light`
       : theme === "neitral"
-      ? tw`bg-neitral`
-      : theme === "dark"
-      ? tw`bg-dark`
-      : tw`bg-dark`};
+        ? tw`bg-neitral`
+        : theme === "dark"
+          ? tw`bg-dark`
+          : tw`bg-dark`};
 `;

@@ -40,7 +40,7 @@ import { useEffect, useState } from "react";
 //   return [storedValue, setValue] as const;
 // }
 
-export function useLocalStorage<T>(key:string, initialValue:T) {
+export function useLocalStorage<T>(key: string, initialValue: T) {
   const getValue = () => {
     const storage = localStorage.getItem(key);
     if (storage) {
@@ -52,6 +52,6 @@ export function useLocalStorage<T>(key:string, initialValue:T) {
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
-  }, [value])
-  return [value, setValue]
+  }, [value]);
+  return [value, setValue];
 }

@@ -1,4 +1,4 @@
-export interface IMenuItem{
-    to: string,
-    name:string,
+export interface IMenuItem {
+  to: string;
+  name: string;
 }

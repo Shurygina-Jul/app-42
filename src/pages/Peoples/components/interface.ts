@@ -1,4 +1,4 @@
-import { ICharacter } from 'types/types';
+import { ICharacter } from "types/types";
 export interface INavigate {
   getResourse: (url: string) => Promise<void>;
   prevPage: string;
@@ -6,9 +6,7 @@ export interface INavigate {
   currentPage: number;
 }
 
-
-
 export interface IResult {
-  name:string;
-  url:string;
+  name: string;
+  url: string;
 }

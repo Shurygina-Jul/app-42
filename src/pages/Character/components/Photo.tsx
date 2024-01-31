@@ -23,7 +23,12 @@ function Photo(props: IPhoto) {
   return (
     <div className="relative">
       <img src={img} alt={name} className=" ml-4 max-w-[260px] rounded-md" />
-      <img src={favorite ? starFillIcon : starIcon} onClick={handleFavorite}  className="w-[40px] h-[40px] absolute top-[-10px] right-[-20px] cursor-pointer" alt="favorite"/>
+      <img
+        src={favorite ? starFillIcon : starIcon}
+        onClick={handleFavorite}
+        className="w-[40px] h-[40px] absolute top-[-10px] right-[-20px] cursor-pointer"
+        alt="favorite"
+      />
     </div>
   );
 }

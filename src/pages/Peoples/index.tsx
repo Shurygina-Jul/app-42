@@ -5,7 +5,6 @@ import Spinner from "components/UI/Spinner/Spinner";
 import PeopleList from "components/PeopleList";
 import Navigation from "./components/Navigation";
 
-
 import { getPeopleId, getPeopleImage, getPeoplePageID } from "lib/utils/getPeopleData";
 import { getApiResource, changeHTTP } from "lib/utils/network";
 
@@ -14,7 +13,6 @@ import { withErrorApi } from "hoc/withErrorApi";
 import { useQueryParams } from "lib/hooks/useQueryParams";
 
 import { API_PEOPLE } from "lib/utils/constants";
-
 
 import { ICharacter, IErrorApi } from "types/types";
 import { IResult } from "./components/interface";

@@ -5,7 +5,7 @@ export interface IContext {
   change: (theme: string) => void;
 }
 
-export interface IThemeProvider{
-    children: ReactElement,
-    props?: unknown
+export interface IThemeProvider {
+  children: ReactElement;
+  props?: unknown;
 }

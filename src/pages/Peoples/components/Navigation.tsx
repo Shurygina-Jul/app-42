@@ -17,7 +17,7 @@ function Navigation(props: INavigate) {
   return (
     <div className="flex justify-center pb-8">
       <Link to={`/people/?page=${currentPage - 1}`} className="mr-24">
-        <Button text="Previous" onClick={handleChangePrev} disabled={!prevPage}  />
+        <Button text="Previous" onClick={handleChangePrev} disabled={!prevPage} />
       </Link>
       <Link to={`/people/?page=${currentPage + 1}`} className="mr-24">
         <Button text="Next" onClick={handleChangeNext} disabled={!nextPage} />

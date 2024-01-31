@@ -1,11 +1,8 @@
-
 import { useStore } from "effector-react";
 
 import PeopleList from "components/PeopleList";
 
 import { $users } from "store/store";
-
-
 
 function FavoriteCharacters() {
   const users = useStore($users);

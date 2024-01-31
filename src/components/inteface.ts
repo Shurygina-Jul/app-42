@@ -1,4 +1,3 @@
-export interface IStyled{
-    theme: string;
-
+export interface IStyled {
+  theme: string;
 }

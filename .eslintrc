@@ -1,12 +1,9 @@
 {
-    "extends":[
-        "react-app",
-        "prettier"
-    ],
-"rules": {
-    "no-console":"error",
-    "no-duplicate-imports":"error",
+  "extends": ["react-app", "prettier"],
+  "rules": {
+    "no-console": "error",
+    "no-duplicate-imports": "error"
     //"no-unused-vars":"warn"
-    },
-    "plugins": ["prettier"]
+  },
+  "plugins": ["prettier"]
 }

@@ -1,14 +1,13 @@
 import { createStore, createEvent } from "effector";
 import connectLocalStorage from "effector-localstorage";
 
-import { ICharacter } from 'types/types';
+import { ICharacter } from "types/types";
 
-
-const usersLocalStorage = connectLocalStorage("users").onError((err) => console.log(err))
+// eslint-disable-next-line no-console
+const usersLocalStorage = connectLocalStorage("users").onError((err) => console.log(err));
 
 //create store
 export const $users = createStore<ICharacter[]>(usersLocalStorage.init([]));
-
 
 //create events
 export const update = createEvent<ICharacter>();

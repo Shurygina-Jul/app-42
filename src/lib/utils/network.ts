@@ -21,20 +21,21 @@ export const getApiResource = async (url: string) => {
     const res = await fetch(url);
 
     if (!res.ok) {
+      //eslint-disable-next-line no-console
       console.error("Could not fetch.", res.status);
       return false;
     }
 
     return await res.json();
   } catch (error: any) {
+    //eslint-disable-next-line no-console
     console.error("Could not fetch.", error.message);
     return false;
   }
 };
 
-
 export const makeConcurrentRequest = async (url: string[]): Promise<any[]> => {
-  const res:string[] = await Promise.all(
+  const res: string[] = await Promise.all(
     url.map((res: string) => {
       return fetch(res).then((res) => res.json());
     }),
